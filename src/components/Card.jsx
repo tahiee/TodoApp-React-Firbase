@@ -31,7 +31,7 @@ export default function BasicCard({ title, editTodo, deleteTodo, index }) {
         <>
             <Card sx={{ minWidth: 275 }} className='mt-2'>
                 {showTodo ?
-                    <Container sx={{boxShadow: 6 , backgroundColor:"#e8eaf6", border:"2px solid gray",marginTop:"2px",marginBottom:"8px" ,borderRadius:"5px",width:"40%"}}>
+                    <Container sx={{boxShadow: 6 , backgroundColor:"#e8eaf6", border:"2px solid gray",marginTop:"2px",marginBottom:"8px" ,borderRadius:"5px", width:"50%"}}>
                         <CardContent sx={{ }} >
                             <Typography sx={{ color: 'black', fontWeight:"500" , fontSize: "20px", display: 'flex', justifyContent: "left", alignItems: "left", textAlign: "left" }} color="text.secondary" >
                                 {title}
