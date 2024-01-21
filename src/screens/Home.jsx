@@ -40,7 +40,6 @@ const Home = () => {
   }, []);
 
 
-
   //add todo function
   const addTodo = async (event) => {
     event.preventDefault();
@@ -52,7 +51,7 @@ const Home = () => {
           userId: user.uid, // Associate the user ID with the todo
           todo: todo.current.value,
         });
-          setData([...data, {
+        setData([...data, {
           docId: docRef.id,
           todo: todo.current.value
         }]);
@@ -103,17 +102,34 @@ const Home = () => {
   };
 
   return (
-    <Box   sx={{ flexDirection: 'row', justifyContent:"center" ,alignItems:"center", textAlign:"center", marginTop:'18px' }}>
-      <form onSubmit={addTodo}>
-        <TextField sx={{ width: '25%'}} id="filled-basic" label="Todo" variant="filled" inputRef={todo} required min={6} />
-        <div >
-        <Button sx={{ width: '25%', marginTop:'12px' }} variant="contained" type='submit'>Add Todo</Button>
+    <Box sx={{ flexDirection: 'row', justifyContent: "center", alignItems: "center", textAlign: "center", marginTop: '18px' }}>
+      <form onSubmit={addTodo} style={{ maxWidth: '100%', padding: '16px' }}>
+        <TextField
+          sx={{
+            width: '100%',
+            marginBottom: '12px',
+            '@media (min-width: 400px)': {
+              width: '40%',
+            },
+          }} id="filled-basic" label="Todo" variant="filled" inputRef={todo} required
+          min={6}
+        /><div>
+          <Button sx={{
+            width: '100%', '@media (min-width: 400px)': {
+              width: '40%',
+            },
+          }}
+            variant="contained"
+            type="submit"
+          >
+            Add Todo
+          </Button>
         </div>
       </form>
       <Box>
         {data.length > 0 ? data.map((item, index) => {
           return <BasicCard key={index} title={item.todo} editTodo={editTodo} deleteTodo={() => deleteTodo(index)} index={index} />
-        }) : <Typography sx={{ marginTop:'12px' }} variant="h5" color="initial">No item found</Typography>}
+        }) : <Typography sx={{ marginTop: '12px' }} variant="h5" color="initial">No item found</Typography>}
       </Box>
     </Box>
   )
