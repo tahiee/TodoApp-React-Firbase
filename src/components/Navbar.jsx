@@ -57,9 +57,11 @@ function ResponsiveAppBar() {
         if (page === 'logout') {
             signOut(auth).then(() => {
                 setIsUser(false);
+                alert('Logout Successfully')
                 navigate('/login');
             }).catch((error) => {
                 console.log(error);
+                alert(error)
             });
             return
         }

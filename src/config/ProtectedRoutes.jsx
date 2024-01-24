@@ -20,7 +20,7 @@ const ProtectedRoutes = ({ component }) => {
     }, [])
     return (
         isUser ?
-            component : <Typography variant="h1" color="initial">Loading...</Typography>
+            component : <Typography variant="h1" color="initial" sx={{textAlign:"center",color:"#455a64"}}>Loading...</Typography>
     )
 }
 

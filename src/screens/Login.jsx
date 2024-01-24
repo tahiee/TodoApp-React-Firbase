@@ -56,12 +56,14 @@ const Login = () => {
     signInWithEmailAndPassword(auth, registerEmail, registerPassword)
       .then((userCredential) => {
         setIsUser(true);
+        alert('Login Successfull')
         navigate('/')
 
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        alert('Please check your Email & Passcode')
       });
     setLoading(!loading)
   }
